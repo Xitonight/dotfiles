@@ -77,9 +77,11 @@ alias ls='eza --icons=always -A --color=always'
 alias ins='yay -Sy --noconfirm'
 alias unstow='stow -D'
 alias zconf='nvim $HOME/dotfiles/zsh/.zshrc'
+alias obsidian='obsidian --enable-features=UseOzonePlatform --ozone-platform=wayland'
 
 # Manpager with bat
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export MANROFFOPT="-c"
 
 # Shell integrations
 eval "$(fzf --zsh)"
