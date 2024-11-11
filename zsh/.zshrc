@@ -73,11 +73,26 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -A --color=always $realpath'
 zstyle ':fzf-tab:complete:ls:*' fzf-preview 'eza -A --color=always $realpath'
 
 # Aliases
-alias ls='eza --icons=always -A --color=always'
-alias ins='yay -Sy --noconfirm'
+alias l='eza -lh --icons=auto' # long list
+alias ls='eza -1 -A --icons=auto' # short list
+alias ll='eza -lha --icons=auto --sort=name --group-directories-first' # long list all
+alias ld='eza -lhD --icons=auto' # long list dirs
+alias lt='eza --icons=auto --tree' # list folder as tree
+
+alias in='yay -Sy --noconfirm'
+alias un='yay -Rs'
+alias up='yay -Syu'
+
 alias unstow='stow -D'
 alias zconf='nvim $HOME/dotfiles/zsh/.zshrc'
-alias obsidian='obsidian --enable-features=UseOzonePlatform --ozone-platform=wayland'
+alias mkdir='mkdir -p'
+
+alias ..='cd ..'
+alias ...='cd ../..'
+alias .3='cd ../../..'
+alias .4='cd ../../../..'
+alias .5='cd ../../../../..'
+
 
 # Manpager with bat
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
@@ -87,3 +102,7 @@ export MANROFFOPT="-c"
 eval "$(fzf --zsh)"
 eval "$(zoxide init zsh)"
 eval $(thefuck --alias)
+
+# Change default editor to neovim
+export EDITOR=nvim
+export VISUAL=nvim 
