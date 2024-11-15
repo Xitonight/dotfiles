@@ -60,6 +60,7 @@
         "spacing": 10
     },
     "clock": {
+        "timezone": "Europe/Rome",
         "tooltip-format": "{calendar}",
         "format-alt": "  {:%a, %d %b %Y}",
         "format": "  {:%I:%M %p}"
