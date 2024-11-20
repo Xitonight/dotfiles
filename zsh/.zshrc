@@ -5,7 +5,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-
 # Enables (or installs if not installed yet) the Zinit plugin manager for zsh
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 if [ ! -d $ZINIT_HOME ]; then
@@ -85,6 +84,8 @@ alias up='yay -Syu'
 
 alias unstow='stow -D'
 alias zconf='nvim $HOME/dotfiles/zsh/.zshrc'
+alias sos='source ~/.zshrc'
+alias nvims='sudoedit'
 alias mkdir='mkdir -p'
 
 alias ..='cd ..'

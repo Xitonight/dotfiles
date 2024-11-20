@@ -1,12 +1,15 @@
 return {
-  "nvim-tree/nvim-tree.lua",
-  version = "*",
-  lazy = false,
-  dependencies = {
-    "nvim-tree/nvim-web-devicons",
-  },
-  config = function()
-    require("nvim-tree").setup {}
-    vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<CR>')
-  end,
+	"nvim-tree/nvim-tree.lua",
+	version = "*",
+	lazy = false,
+	dependencies = {
+		"nvim-tree/nvim-web-devicons",
+	},
+	config = function()
+		require("nvim-tree").setup({})
+		vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
+		vim.filetype.add({
+			pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
+		})
+	end,
 }

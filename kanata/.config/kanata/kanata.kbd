@@ -5,7 +5,7 @@
 )
 
 (defsrc
-  u
+  u i
   caps a s d f j k l Semicolon
   spc
 )
@@ -29,13 +29,13 @@
 )
 
 (deflayer base
-  _
+  _ _
   @escctrl @a-mod @s-mod @d-mod @f-mod @j-mod @k-mod @l-mod @ò-mod
   @spacemode
 )
 
 (deflayer spacemods
-  bspc
+  bspc del
   @escctrl @a-mod @s-mod @d-mod @f-mod Enter @k-mod @l-mod @ò-mod
   _
 )
