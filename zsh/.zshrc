@@ -1,3 +1,17 @@
+if [ -z $SSH_CONNECTION ]; then
+    tmux has-session -t "main" 2> /dev/null
+
+    if [ $? != 0 ]; then
+        tmux new-session -d -s "main" 2> /dev/null
+        tmux neww -d -n "obsidian" -t main 2> /dev/null
+        tmux neww -d -n "ssh" -t main 2> /dev/null
+    fi
+
+    if [ -z $TMUX ]; then
+        tmux attach -t "main" 2> /dev/null
+    fi
+fi
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -70,6 +84,7 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -A --color=always $realpath'
 zstyle ':fzf-tab:complete:ls:*' fzf-preview 'eza -A --color=always $realpath'
+zstyle ':fzf-tab:complete:timg:*' fzf-preview 'timg -pk $realpath'
 
 # Aliases
 alias l='eza -lh --icons=auto' # long list
@@ -77,6 +92,8 @@ alias ls='eza -1 -A --icons=auto' # short list
 alias ll='eza -lha --icons=auto --sort=name --group-directories-first' # long list all
 alias ld='eza -lhD --icons=auto' # long list dirs
 alias lt='eza --icons=auto --tree' # list folder as tree
+
+alias "ihateniggers"="zen-browser"
 
 alias in='yay -Sy --noconfirm'
 alias un='yay -Rs'
@@ -94,6 +111,7 @@ alias .3='cd ../../..'
 alias .4='cd ../../../..'
 alias .5='cd ../../../../..'
 
+alias obs='nvim ~/Shared/obsidian/main\ vault/'
 
 # Manpager with bat
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
@@ -107,6 +125,10 @@ eval $(thefuck --alias)
 # Change default editor to neovim
 export EDITOR=nvim
 export VISUAL=nvim 
+
+export MANPATH="$MANPATH:/usr/local/texlive/2024/texmf-dist/doc/man"
+export INFOPATH="$INFOPATH:/usr/local/texlive/2024/texmf-dist/doc/info"
+export PATH="$PATH:/usr/local/texlive/2024/bin/x86_64-linux"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
