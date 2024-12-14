@@ -16,6 +16,7 @@ return {
         dependencies = {
             "hrsh7th/cmp-buffer",
             "hrsh7th/cmp-path",
+            "ray-x/cmp-treesitter"
         },
         config = function()
             local cmp = require("cmp")
@@ -76,6 +77,7 @@ return {
                 sources = cmp.config.sources({
                     { name = "nvim_lsp" },
                     { name = "luasnip" }, -- For luasnip users.
+                    { name = "treesitter" }, -- For luasnip users.
                 }, {
                     { name = "buffer" },
                     { name = "calc" },

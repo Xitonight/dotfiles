@@ -7,7 +7,7 @@ configuration {
     terminal:                       "kitty";
     icon-theme:                     "Oranchelo";
     drun-url-launcher:              "xdg-open";
-	sidebar-mode:                   false;
+    sidebar-mode:                   false;
     steal-focus:                    false;
 
 

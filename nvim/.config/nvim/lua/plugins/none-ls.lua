@@ -11,15 +11,15 @@ return {
                 -- Sh
                 require("none-ls.formatting.beautysh"),
                 -- Lua
-                null_ls.builtins.formatting.stylua.with({
-                    extra_args = { "--config-path", "~/.config/nvim/stylua.toml" },
-                }),
+                null_ls.builtins.formatting.stylua,
                 -- Javascript / Typescript
                 null_ls.builtins.formatting.prettier.with({
                     extra_args = { "--print-width", "80", "--prose-wrap", "always" },
                 }),
                 require("none-ls.diagnostics.eslint"),
                 require("none-ls.code_actions.eslint"),
+                -- Cpp
+                null_ls.builtins.formatting.clang_format;
             },
             on_attach = function(client, bufnr)
                 if client.supports_method("textDocument/formatting") then

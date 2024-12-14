@@ -11,6 +11,7 @@ return {
             require("mason-tool-installer").setup({
                 ensure_installed = {
                     "clangd",
+                    "clang-format",
                     "jdtls",
                     "kotlin-language-server",
                     "bash-language-server",
@@ -30,6 +31,12 @@ return {
     {
         "neovim/nvim-lspconfig",
         config = function()
+            vim.filetype.add({
+  extension = {
+    rasi = "css", -- Set .rasi files to use the css filetype
+  },
+})
+
             local lspconfig = require("lspconfig")
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
